@@ -1,0 +1,217 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Mountains of Christmas', cursive;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #01142F, #0A2472);
+    color: #fff;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding-top: 20px;
+}
+
+h1 {
+    font-size: 5em;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+    margin-bottom: 20px;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
+    }
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+    }
+}
+
+.scene {
+    position: relative;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.christmas-tree {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 200px solid #0f0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+}
+
+.christmas-tree::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 140px solid #0a0;
+    position: absolute;
+    top: 60px;
+    left: -70px;
+}
+
+.christmas-tree::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 80px solid #080;
+    position: absolute;
+    top: 120px;
+    left: -40px;
+}
+
+.star {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid gold;
+    position: absolute;
+    top: -70px;
+    left: -30px;
+    animation: starTwinkle 1s ease-in-out infinite alternate;
+}
+
+.star::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 60px solid gold;
+    position: absolute;
+    top: 20px;
+    left: -30px;
+}
+
+@keyframes starTwinkle {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+.ornaments {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.ornaments::before,
+.ornaments::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: red;
+    animation: ornamentTwinkle 1.5s infinite alternate;
+}
+
+.ornaments::before {
+    top: 30%;
+    left: 20%;
+}
+
+.ornaments::after {
+    top: 60%;
+    right: 20%;
+}
+
+@keyframes ornamentTwinkle {
+    from { opacity: 0.5; transform: scale(1); }
+    to { opacity: 1; transform: scale(1.2); }
+}
+
+.gifts {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.gift {
+    width: 40px;
+    height: 40px;
+    background: #ff4d4d;
+    position: relative;
+}
+
+.gift::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: rotate(45deg);
+}
+
+.gift::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 40px;
+    background: gold;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gift1 { background: #ff4d4d; }
+.gift2 { background: #4dff4d; }
+.gift3 { background: #4d4dff; }
+
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.snowflake {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+#music-toggle {
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#music-toggle:hover {
+    background: #ff6666;
+    transform: scale(1.1);
+}
